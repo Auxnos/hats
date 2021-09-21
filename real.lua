@@ -1,3 +1,4 @@
+-- setfenv(69)
 -- Converted using Mokiros's Model to Script Version 3
 -- Converted string size: 1216 characters
 local function Decode(str)
@@ -273,24 +274,29 @@ local hats = game:GetService("ReplicatedStorage"):FindFirstChild("hats")
 if not hats then
     hats = Instance.new("Folder",game:GetService("ReplicatedStorage"))
     hats.Name = "hats"
+else
+    hats:ClearAllChildren()
 end
 for _,obj in pairs(Objects) do
     obj.Parent = hats
 end
 function hatlol(char: Instance, str: string)
-    coroutine.yield(coroutine.wrap(function()
-        game:GetService("ReplicatedStorage"):WaitForChild("hats",1)
-        warn("got hats")
-    end)())
-    local hat = hats:WaitForChild(str,math.huge):Clone()
-    hat.Parent = char
-    hat.CFrame = char:WaitForChild("Head",math.huge).CFrame * CFrame.new(hat.offset.Position)
-    local weld = Instance.new("Weld", hat)
-    weld.Part1 = hat
-    weld.Part0 = char:WaitForChild("Head",math.huge)
-    weld.C0 = weld.C0 * CFrame.new(hat.offset.Position)
+    task.spawn(function()
+        pcall(function()
+            local hat = hats:WaitForChild(str,math.huge):Clone()
+            hat.Parent = char
+            hat.CFrame = char:WaitForChild("Head",math.huge).CFrame * CFrame.new(hat.offset.Position)
+            local weld = Instance.new("Weld", hat)
+            weld.Part1 = hat
+            weld.Part0 = char:WaitForChild("Head",math.huge)
+            weld.C0 = weld.C0 * CFrame.new(hat.offset.Position)
+            hat.Anchored = false
+            warn("successfully set hat  ".. str.. '!')
+        end)
+    end)
 end
-hatlol(Snow, "sombrero")
+warn(#hats:GetChildren())
+hatlol(Snow, hats:GetChildren()[math.random(1,#hats:GetChildren())])
 local Remote = Instance.new("RemoteEvent", Snow)
 Remote.Name = "SnowEvent"
 local oc1 = Snow.Head.head.C1
