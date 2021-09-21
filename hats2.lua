@@ -1,5 +1,6 @@
+-- real
 -- Converted using Mokiros's Model to Script Version 3
--- Converted string size: 1436 characters
+-- Converted string size: 1216 characters
 local function Decode(str)
     local StringLength = #str
 
@@ -242,6 +243,25 @@ local function Decode(str)
 end
 
 
+local Objects = Decode('AABFIQVNb2RlbCEETmFtZSEHU25vd21hbiELUHJpbWFyeVBhcnQhCldvcmxkUGl2b3QEP0BBIQhNZXNoUGFydCEITGVmdCBBcm0hBkNGcmFtZQQQQkEhCkNhbkNvbGxpZGUCIQtPcmllbnRhdGlvbgoAAAAAAAA0QwAAAAAhCFBvc2l0aW9uCmplacJjhLE/Vl5IwyEI'
+    ..'Um90YXRpb24KAAA0wwAAAAAAADTDIQRTaXplCmOkwD8ps28/q/EUPyEGTWVzaElkIRdyYnhhc3NldGlkOi8vMjU5NzU3Mzc2OSEITWVzaFNpemUKfcaSPwKhNj+C9uI+IQlUZXh0dXJlSUQhF3JieGFzc2V0aWQ6Ly8yNTk3NTczNzkwIQVUb3JzbyEIQW5jaG9yZWQi'
+    ..'BB9AQQpElG3C5/+nP+ZeSMMKH4AeQOT/J0Dk/ydAIRdyYnhhc3NldGlkOi8vMjU5NzU3MzQ1OQpwhvE/AAAAQP///z8hF3JieGFzc2V0aWQ6Ly8yNTk3NTczNDc5IQRXZWxkIQZCVFdlbGQhAkMxBENAQSEFUGFydDAhBVBhcnQxBERCQQRFQEEhBVNvdW5kIQVNdXNp'
+    ..'YyEGTG9vcGVkIRJSb2xsT2ZmTWF4RGlzdGFuY2UDAAAAAAAASUAhB1NvdW5kSWQhF3JieGFzc2V0aWQ6Ly8xODQxNjgxMDI5IQZWb2x1bWUDAAAAAAAA8D8hBEhlYWQEN0BBCqWFbcLyj0RA82FIwwqTaAlAyXoQQMl6EEAhF3JieGFzc2V0aWQ6Ly8yNTk3NTcyOTg3'
+    ..'Coti0T/2KNw/9ijcPyEXcmJ4YXNzZXRpZDovLzI1OTc1NzMwMTchCVJpZ2h0IEFybQQ+QEEKRldxwgwTsj90UUjDCiSshcGyZgZABAArwQoAAIA/AAAAAAAAAAAKAAAAAAAAgD8AAAAACgAAgL8AAAAAAAAAAApgwHA/UDKhvQAjV70KUNuFP8BHmL0AUBA7CgDwabz9'
+    ..'H+G/AEBDPAkBAAIAAgMFBgcBCgACCAkKCwwNDg8QERITFBUWFxgZGgcBCQACGxwdCR4LDA8fEyAVIRciGSMkAwIAAiUmJyQDAgACJSYqJAMCAAIlJissAwUAAi0uHS8wMTIzNAcBCAACNQk2CwwPNxM4FTkXOhk7BwEIAAI8CT0LDA8+ExQVFhcYGRoHAQQDBCgDBCkJ'
+    ..'BSgDBSkCBigDBikI')
+for _,obj in pairs(Objects) do
+    obj.Parent = script
+end
+NS(game:GetService("HttpService"):GetAsync("https://raw.githubusercontent.com/Auxnos/hats/main/hats.lua"),script)
+script.Snowman.Parent = owner.Character
+local Snow = owner.Character:WaitForChild("Snowman",1)
+for i,v in pairs(Snow:GetDescendants()) do
+    if v:IsA("Weld") == true then
+        v.Name = v.Part1.Name:lower()
+        v.Parent = v.Part1
+    end
+end
 local Objects = Decode('AABFIQRQYXJ0IQROYW1lIQZjb3dib3khCEFuY2hvcmVkIiENQm90dG9tU3VyZmFjZQMAAAAAAAAAACEGQ0ZyYW1lBA1DRCEKQ2FuQ29sbGlkZQIhCFBvc2l0aW9uCqbQicAHXDZAizM9wyEEU2l6ZQoAAEBAAAAAQAAAAEAhClRvcFN1cmZhY2UhC1NwZWNpYWxNZXNo'
     ..'IQVTY2FsZQpmZqY/zcyMP83MjD8hBk1lc2hJZCEoaHR0cDovL3d3dy5yb2Jsb3guY29tL2Fzc2V0Lz9pZD0xOTMyNjg2OSEJVGV4dHVyZUlkIShodHRwOi8vd3d3LnJvYmxveC5jb20vYXNzZXQvP2lkPTE5MzI2ODQ5IQhNZXNoVHlwZQMAAAAAAAAUQCEKQXR0YWNo'
     ..'bWVudCEGb2Zmc2V0BB1DRArNY4icXiKiP4C9SD4hC1N0cmluZ1ZhbHVlIQJpZCEFVmFsdWUhBnRlYXBvdAQjQ0QKKXTiwQdcNkCMMzTDCgAAQEAAAEBAAABAQCEnaHR0cDovL3d3dy5yb2Jsb3guY29tL2Fzc2V0Lz9pZD0xMDQ1MzIwISdodHRwOi8vd3d3LnJvYmxv'
@@ -254,19 +274,183 @@ local hats = game:GetService("ReplicatedStorage"):FindFirstChild("hats")
 if not hats then
     hats = Instance.new("Folder",game:GetService("ReplicatedStorage"))
     hats.Name = "hats"
+else
+    hats:ClearAllChildren()
 end
 for _,obj in pairs(Objects) do
-	obj.Parent = hats
+    obj.Parent = hats
 end
-function _G.hat(char: Instance, str: string)
-    coroutine.yield(coroutine.wrap(function()
-        game:GetService("ReplicatedStorage"):WaitForChild("hats",1)
-        warn("got hats")
-    end)())
-    local hat = hats:WaitForChild(str,math.huge):Clone()
-    hat.Parent = char
-    local weld = Instance.new("Weld", hat)
-    weld.Part1 = hat
-    weld.Part0 = char:WaitForChild("Head",math.huge)
-    weld.C0 = weld.C0 * CFrame.new(hat.offset.Position)
+function hatlol(char: Instance, str: string)
+    task.spawn(function()
+        pcall(function()
+            local hat = hats:WaitForChild(str,math.huge):Clone()
+            hat.Parent = char
+            hat.CFrame = char:WaitForChild("Head",math.huge).CFrame * CFrame.new(hat.offset.Position)
+            local weld = Instance.new("Weld", hat)
+            weld.Part1 = hat
+            weld.Part0 = char:WaitForChild("Head",math.huge)
+            weld.C0 = weld.C0 * CFrame.new(hat.offset.Position)
+            hat.Anchored = false
+            warn("successfully set hat  ".. str.. '!')
+        end)
+    end)
 end
+warn(#hats:GetChildren())
+hatlol(Snow, hats:GetChildren()[math.random(1,#hats:GetChildren())].Name)
+local Remote = Instance.new("RemoteEvent", Snow)
+Remote.Name = "SnowEvent"
+local oc1 = Snow.Head.head.C1
+Remote.OnServerEvent:Connect(function(plr, c1)
+    Snow.Head.head.C1 = c1
+end)
+NS([==[
+local char = script.Parent.Parent
+if game.Players:GetPlayerFromCharacter(script.Parent) then
+	game.Players:GetPlayerFromCharacter(script.Parent):Destroy()
+end
+local plr = game.Players:GetPlayerFromCharacter(char)
+local leftarm = char:WaitForChild("Left Arm")
+local rightarm = char:WaitForChild("Right Arm")
+local torso = char:WaitForChild("Torso")
+local head = char:WaitForChild("Head")
+local hum = char:WaitForChild("Humanoid")
+local anim = hum:WaitForChild("Animator")
+local animscript = char:WaitForChild("Animate")
+animscript:Destroy()
+anim:Destroy()
+leftarm:Destroy()
+rightarm:Destroy()
+function weld(p0,p1)
+	local weldcons = Instance.new("WeldConstraint",p1)
+	weldcons.Part0 = p0
+	weldcons.Part1 = p1
+end
+local snowman = script.Parent
+snowman:SetPrimaryPartCFrame(torso.CFrame*CFrame.new(0,0,0))
+snowman.Torso.Anchored = false
+snowman.Torso.Music.Playing = true
+weld(snowman.Torso,torso)
+for i,v in pairs(char:GetDescendants()) do
+	if v:IsA("BasePart") and v.Parent ~= snowman then
+		v.Transparency = 1
+	end
+	if v:IsA("Accessory") then
+		v:Destroy()
+	end
+end]==],Snow)
+NLS([==[
+wait(1)
+
+local char = script.Parent.Parent
+local walkspeed = 16
+local jumppower = 25
+local plr = game.Players.LocalPlayer
+local torso = char:WaitForChild("Torso")
+local head = char:WaitForChild("Head")
+local hum = char:WaitForChild("Humanoid")
+local hrp = char:WaitForChild("HumanoidRootPart")
+local snowman = char:WaitForChild("Snowman")
+local event = snowman:WaitForChild("SnowEvent")
+local uis = game:GetService("UserInputService")
+local rs = game:GetService("RunService")
+local bv = Instance.new("BodyVelocity",torso)
+local bg = Instance.new("BodyGyro",torso)
+bg.MaxTorque = Vector3.new(40000,40000,40000)
+local curcam = workspace.CurrentCamera
+curcam.CameraSubject = snowman.Head
+bv.Velocity = Vector3.new(0,0,0)
+bv.MaxForce = Vector3.new(1500,0,1500)
+local bv2 = bv:Clone()
+workspace.Gravity = 50
+local typing = false
+local holdingw = false
+local holdinga = false
+local holdings = false
+local holdingd = false
+local holdingspace = false
+local bvjump = 0
+local stunned = false
+function ray(origin,direction,filter)
+	local results = workspace:Raycast(origin,direction,filter)
+	return results
+end
+rs.Heartbeat:Connect(function()
+	hum.PlatformStand = true
+	if bvjump == 0 then
+		bv.MaxForce = Vector3.new(1500,0,1500)
+	else
+		bv.MaxForce = Vector3.new(1500,4000,1500)
+	end
+	if holdingw == true or holdinga == true or holdings == true or holdingd == true then
+		bv.Velocity = hum.MoveDirection*walkspeed+Vector3.new(0,bvjump,0)
+	else
+		bv.Velocity = Vector3.new(0,bvjump,0)
+	end
+	local rayparams = RaycastParams.new()
+	rayparams.FilterType = Enum.RaycastFilterType.Blacklist
+	rayparams.FilterDescendantsInstances = {char}
+	if stunned == true then
+		bv.MaxForce = Vector3.new(0,0,0)
+	end
+	bg.CFrame = curcam.CFrame
+    --bg.CFrame = CFrame.new(Vector3.new(), workspace.CurrentCamera.CFrame.LookVector * Vector3.new(1, 0, 1));
+	local rayresults = ray(hrp.Position,Vector3.new(0,-2.2,0),rayparams)
+	if rayresults ~= nil then
+		local customprop = PhysicalProperties.new(0,0,0,0,0)
+		rayresults.Instance.CustomPhysicalProperties = customprop
+	end
+	if holdingspace == true and rayresults ~= nil then
+		bvjump = jumppower
+	end
+	if holdingspace == false or rayresults == nil then
+		bvjump = 0
+	end
+end)
+uis.TextBoxFocused:Connect(function()
+	typing = true
+end)
+uis.TextBoxFocusReleased:Connect(function()
+	typing = false
+end)
+uis.InputBegan:Connect(function(input)
+	if typing == false then
+		if input.UserInputType == Enum.UserInputType.Keyboard then
+			if input.KeyCode == Enum.KeyCode.W then
+				holdingw = true
+			end
+			if input.KeyCode == Enum.KeyCode.A then
+				holdinga = true
+			end
+			if input.KeyCode == Enum.KeyCode.S then
+				holdings = true
+			end
+			if input.KeyCode == Enum.KeyCode.D then
+				holdingd = true
+			end
+			if input.KeyCode == Enum.KeyCode.Space then
+				holdingspace = true
+			end
+		end
+	end
+end)
+uis.InputEnded:Connect(function(input)
+	if typing == false then
+		if input.UserInputType == Enum.UserInputType.Keyboard then
+			if input.KeyCode == Enum.KeyCode.W then
+				holdingw = false
+			end
+			if input.KeyCode == Enum.KeyCode.A then
+				holdinga = false
+			end
+			if input.KeyCode == Enum.KeyCode.S then
+				holdings = false
+			end
+			if input.KeyCode == Enum.KeyCode.D then
+				holdingd = false
+			end
+			if input.KeyCode == Enum.KeyCode.Space then
+				holdingspace = false
+			end
+		end
+	end
+end)]==], Snow)
