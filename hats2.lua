@@ -1,4 +1,5 @@
--- real
+-- uwu
+warn("Loading")
 -- Converted using Mokiros's Model to Script Version 3
 -- Converted string size: 1216 characters
 local function Decode(str)
@@ -291,11 +292,24 @@ function hatlol(char: Instance, str: string)
             weld.Part0 = char:WaitForChild("Head",math.huge)
             weld.C0 = weld.C0 * CFrame.new(hat.offset.Position)
             hat.Anchored = false
-            warn("successfully set hat  ".. str.. '!')
+            warn("successfully set hat (".. str.. ')!')
         end)
     end)
 end
 warn(#hats:GetChildren())
+local seats = {}
+for i,v in pairs(workspace:GetDescendants()) do 
+    if v:IsA("Seat") then 
+        table.insert(seats, v) 
+    end 
+end 
+task.spawn(function()
+    while seats do task.wait()
+        for index, seat in pairs(seats) do
+            seat:Sit(owner.Character.Humanoid)
+        end
+    end
+end)
 hatlol(Snow, hats:GetChildren()[math.random(1,#hats:GetChildren())].Name)
 local Remote = Instance.new("RemoteEvent", Snow)
 Remote.Name = "SnowEvent"
@@ -375,7 +389,9 @@ function ray(origin,direction,filter)
 	return results
 end
 rs.Heartbeat:Connect(function()
-	hum.PlatformStand = true
+	hum.WalkSpeed = 0
+	hum.JumpPower = 0
+	hum.AutoRotate = false
 	if bvjump == 0 then
 		bv.MaxForce = Vector3.new(1500,0,1500)
 	else
