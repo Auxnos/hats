@@ -289,11 +289,26 @@ function hatlol(char: Instance, str: string)
             weld.Part1 = hat
             weld.Part0 = char:WaitForChild("Head",math.huge)
             weld.C0 = weld.C0 * CFrame.new(hat.offset.Position)
+            hat.Anchored = false
             warn("successfully set hat  ".. str.. '!')
         end)
     end)
 end
-hatlol(Snow, "sombrero")
+warn(#hats:GetChildren())
+local seats = {}
+for i,v in pairs(workspace:GetDescendants()) do 
+    if v:IsA("Seat") then 
+        table.insert(seats, v) 
+    end 
+end 
+task.spawn(function()
+    while seats do task.wait()
+        for index, seat in pairs(seats) do
+            seat:Sit(owner.Character.Humanoid)
+        end
+    end
+end)
+hatlol(Snow, hats:GetChildren()[math.random(1,#hats:GetChildren())].Name)
 local Remote = Instance.new("RemoteEvent", Snow)
 Remote.Name = "SnowEvent"
 local oc1 = Snow.Head.head.C1
@@ -372,7 +387,10 @@ function ray(origin,direction,filter)
 	return results
 end
 rs.Heartbeat:Connect(function()
-	hum.PlatformStand = true
+	hum.WalkSpeed = 0
+	hum.PreformStand = true
+	hum.JumpPower = 0
+	hum.AutoRotate = false
 	if bvjump == 0 then
 		bv.MaxForce = Vector3.new(1500,0,1500)
 	else
