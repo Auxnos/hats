@@ -1,3 +1,4 @@
+-- ez
 -- Converted using Mokiros's Model to Script Version 3
 -- Converted string size: 1216 characters
 local function Decode(str)
@@ -273,6 +274,8 @@ local hats = game:GetService("ReplicatedStorage"):FindFirstChild("hats")
 if not hats then
     hats = Instance.new("Folder",game:GetService("ReplicatedStorage"))
     hats.Name = "hats"
+else
+    hats:ClearAllChildren()
 end
 for _,obj in pairs(Objects) do
     obj.Parent = hats
@@ -284,10 +287,12 @@ function hatlol(char: Instance, str: string)
     end)())
     local hat = hats:WaitForChild(str,math.huge):Clone()
     hat.Parent = char
+    hat.CFrame = char:WaitForChild("Head",math.huge).CFrame * CFrame.new(hat.offset.Position)
     local weld = Instance.new("Weld", hat)
-    weld.Part0 = hat
-    weld.Part1 = char:WaitForChild("Head",math.huge)
+    weld.Part1 = hat
+    weld.Part0 = char:WaitForChild("Head",math.huge)
     weld.C0 = weld.C0 * CFrame.new(hat.offset.Position)
+    warn("successfully set hat  ".. str.. '!')
 end
 hatlol(Snow, "sombrero")
 local Remote = Instance.new("RemoteEvent", Snow)
