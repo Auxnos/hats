@@ -1,5 +1,4 @@
--- uwu
-warn("Loading")
+-- uwu2
 -- Converted using Mokiros's Model to Script Version 3
 -- Converted string size: 1216 characters
 local function Decode(str)
@@ -292,7 +291,7 @@ function hatlol(char: Instance, str: string)
             weld.Part0 = char:WaitForChild("Head",math.huge)
             weld.C0 = weld.C0 * CFrame.new(hat.offset.Position)
             hat.Anchored = false
-            warn("successfully set hat (".. str.. ')!')
+            warn("successfully set hat  ".. str.. '!')
         end)
     end)
 end
@@ -390,6 +389,7 @@ function ray(origin,direction,filter)
 end
 rs.Heartbeat:Connect(function()
 	hum.WalkSpeed = 0
+	hum.PreformStand = true
 	hum.JumpPower = 0
 	hum.AutoRotate = false
 	if bvjump == 0 then
